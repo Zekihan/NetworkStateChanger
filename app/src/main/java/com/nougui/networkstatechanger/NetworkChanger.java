@@ -13,12 +13,14 @@ class NetworkChanger {
 
     public static int getPreferredNetwork(Context context) {
         cr = context.getContentResolver();
-        return Integer.parseInt(Settings.Global.getString(cr, "preferred_network_mode1"));
+        String str = Settings.Global.getString(cr, "preferred_network_mode");
+        return Integer.parseInt(str.split(",")[0]);
     }
 
     public static void setPreferredNetwork(final Context context, int value) {
         cr = context.getContentResolver();
-        android.provider.Settings.Global.putString(cr, "preferred_network_mode1", String.valueOf(value));
+        String strValue = String.valueOf(value) + ",9";
+        android.provider.Settings.Global.putString(cr, "preferred_network_mode", strValue);
 
     }
 

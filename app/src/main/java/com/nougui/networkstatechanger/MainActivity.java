@@ -86,7 +86,10 @@ public class MainActivity extends AppCompatActivity {
         getSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.e("Before",(NetworkChanger.getPreferredNetwork(mContext))+"");
                 NetworkChanger.setPreferredNetwork(mContext,numberPicker1.getValue());
+                Log.e("Value",(numberPicker1.getValue())+"");
+                Log.e("After",(NetworkChanger.getPreferredNetwork(mContext))+"");
             }
         });
     }
